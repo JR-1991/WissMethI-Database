@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  mysql:
+    build:
+      context: ./database
+      dockerfile: ./Dockerfile
+    container_name: mysql
+    restart: always
+    env_file:
+      - ./.env
+    ports:
+      - '3307:3306'
+    expose:
+      - '3307'
+    networks:
+      - db
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 40s
+      retries: 10
+  boostrap:
+    build:
+      context: ./bootstrap
+      dockerfile: ./Dockerfile
+    container_name: bootstrap
+    restart: no
+    environment:
+      - MYSQL_HOST=mysql
+    env_file:
+      - ./.env
+    networks:
+      - db
+networks:
+  db:
+    driver: bridge
