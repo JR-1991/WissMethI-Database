@@ -31,7 +31,7 @@ while True:
         orm = reflect_schema(engine)
         break
     except OperationalError:
-        sleep(1)
+        sleep(5)
         print("🔌 Connecting to database (retrying)")
         pass
 
@@ -63,3 +63,5 @@ with Session(engine) as sess:
         sess.add(orm.classes.density(mixture_id=mixture_id, **density))
 
     sess.commit()
+
+print("✅ Setup done!")
