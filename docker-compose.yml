@@ -40,7 +40,9 @@ services:
     env_file:
       - ./.env
     ports:
-      - "8080:80"
+      - "4500:80"
+    expose:
+      - "4500"
     networks:
       - db
 
