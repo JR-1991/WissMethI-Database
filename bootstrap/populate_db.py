@@ -1,4 +1,5 @@
 import os
+from time import sleep
 import pandas as pd
 
 from utils import connect, reflect_schema
@@ -30,6 +31,7 @@ while True:
         orm = reflect_schema(engine)
         break
     except OperationalError:
+        sleep(1)
         print("🔌 Connecting to database (retrying)")
         pass
 
