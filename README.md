@@ -1,24 +1,25 @@
-# WissMeth I: Database lecture
+# Start of Selection
+# WissMeth I: Datenbankvorlesung
 
-This repository contains all necessary scripts and data to spin up a MySQL database and populate it.
+Dieses Repository enthält alle notwendigen Skripte und Daten, um eine MySQL-Datenbank zu starten und zu befüllen. Diese Datenbank wird für die Datenbankvorlesung in WissMeth I verwendet und implementiert ein einfaches Mischungsdatenmodell mit Dichten und Viskositäten (siehe [Datenmodell](#datenmodell)).
 
-## Usage
+## Verwendung
 
-Simply run the `docker compose up -d` to spin up the database and populate it with data. Please note, for this to work, you need to have docker installed on your system and a running docker engine.
+Führen Sie einfach `docker compose up -d` aus, um die Datenbank zu starten und mit Daten zu befüllen. Bitte beachten Sie, dass Docker auf Ihrem System installiert sein und eine laufende Docker-Engine vorhanden sein muss, damit dies funktioniert.
 
-### Environment Variables
+### Umgebungsvariablen
 
 ```bash
-# MySQL Config
+# MySQL Konfiguration
 MYSQL_ROOT_PASSWORD=supersecurepassword
 MYSQL_DATABASE=mixtures
 
-# phpMyAdmin Config
+# phpMyAdmin Konfiguration
 PMA_HOST=mysql
 PMA_PORT=3306
 ```
 
-## DataModel
+## Datenmodell
 
 ```mermaid
 classDiagram
