@@ -2,10 +2,10 @@ import os
 import pandas as pd
 
 from utils import connect, reflect_schema
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import OperationalError
 
-print("🔌 Connecting to database")
 while True:
     try:
         engine = connect(
@@ -16,13 +16,22 @@ while True:
             port=3306,
         )
 
+        with Session(engine) as sess:
+            # Revoke all privileges from the user
+            sess.execute(
+                text(f"REVOKE ALL PRIVILEGES, GRANT OPTION FROM '{os.environ['MYSQL_USER']}'@'%';")
+            )
+            
+            # Grant only SELECT privilege to the user
+            sess.execute(
+                text(f"GRANT SELECT ON `{os.environ['MYSQL_DATABASE']}`.* TO '{os.environ['MYSQL_USER']}'@'%';")
+            )
+        
         orm = reflect_schema(engine)
         break
     except OperationalError:
         print("🔌 Connecting to database (retrying)")
         pass
-
-print("🚀 Populating database with data from ./viscosity.tsv and ./density.tsv")
 
 with Session(engine) as sess:
     # Add mixture row
@@ -52,5 +61,3 @@ with Session(engine) as sess:
         sess.add(orm.classes.density(mixture_id=mixture_id, **density))
 
     sess.commit()
-
-print("✅ Done!")
