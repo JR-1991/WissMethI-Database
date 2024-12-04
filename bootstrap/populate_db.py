@@ -9,8 +9,8 @@ print("🔌 Connecting to database")
 while True:
     try:
         engine = connect(
-            username=os.environ["MYSQL_USER"],
-            password=os.environ["MYSQL_PASSWORD"],
+            username="root",
+            password=os.environ["MYSQL_ROOT_PASSWORD"],
             db_name=os.environ["MYSQL_DATABASE"],
             host=os.environ["MYSQL_HOST"],
             port=3306,
@@ -18,8 +18,8 @@ while True:
 
         orm = reflect_schema(engine)
         break
-    except OperationalError as e:
-        print(f"🔌 Connecting to database (retrying)")
+    except OperationalError:
+        print("🔌 Connecting to database (retrying)")
         pass
 
 print("🚀 Populating database with data from ./viscosity.tsv and ./density.tsv")
@@ -31,7 +31,7 @@ with Session(engine) as sess:
     sess.add(mixture)
 
     # Retrieve ID for density and viscosity
-    mixture_id = sess.query(orm.classes.mixtures).first().id
+    mixture_id = sess.query(orm.classes.mixtures).first().id # type: ignore
 
     # Add viscosity rows
     viscosities = pd.read_csv("./viscosity.tsv", sep="\t").to_dict("records")

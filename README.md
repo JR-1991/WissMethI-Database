@@ -6,6 +6,18 @@ This repository contains all necessary scripts and data to spin up a MySQL datab
 
 Simply run the `docker compose up -d` to spin up the database and populate it with data. Please note, for this to work, you need to have docker installed on your system and a running docker engine.
 
+### Environment Variables
+
+```bash
+# MySQL Config
+MYSQL_ROOT_PASSWORD=supersecurepassword
+MYSQL_DATABASE=mixtures
+
+# phpMyAdmin Config
+PMA_HOST=mysql
+PMA_PORT=3306
+```
+
 ## DataModel
 
 ```mermaid
@@ -14,7 +26,7 @@ classDiagram
     mixtures <-- density
 
     class mixtures {
-        +INT(PK) id 
+        +INT(PK) id
         +VARCHAR(100) name
     }
 
