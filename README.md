@@ -18,6 +18,8 @@ Führen Sie einfach `docker compose up -d` aus, um die Datenbank zu starten und 
 # MySQL Konfiguration
 MYSQL_ROOT_PASSWORD=supersecurepassword
 MYSQL_DATABASE=mixtures
+MYSQL_USER=wissmeth
+MYSQL_PASSWORD=wissmeth
 
 # phpMyAdmin Konfiguration
 PMA_HOST=mysql
