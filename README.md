@@ -1,4 +1,3 @@
-# Start of Selection
 # WissMeth I: Datenbankvorlesung
 
 Dieses Repository enthält alle notwendigen Skripte und Daten, um eine MySQL-Datenbank zu starten und zu befüllen. Diese Datenbank wird für die Datenbankvorlesung in WissMeth I verwendet und implementiert ein einfaches Mischungsdatenmodell mit Dichten und Viskositäten (siehe [Datenmodell](#datenmodell)).
