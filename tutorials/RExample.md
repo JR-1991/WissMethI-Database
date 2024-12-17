@@ -28,6 +28,8 @@ install.packages("RMySQL")
 install.packages("ggplot2")
 ```
 
+> Für die Installation des Pakets `RMySQL` benötigen sie [xcode](https://developer.apple.com/xcode/). Dieses können Sie über den App Store installieren.
+
 ---
 
 ## Ausführung der Übungen
@@ -42,9 +44,7 @@ Folgende Schritte werden in diesem Tutorial durchgeführt:
 
 In diesem Abschnitt stellen Sie eine Verbindung zu einer MySQL-Datenbank mit R her. Bearbeiten Sie die Argumente innerhalb der `dbConnect`-Funktion mit Ihren Datenbankzugangsdaten und führen Sie die Zelle aus.
 
->Die Verbindungsdaten für die Datenbankverbindung (host, user, port, password) finden Sie im ILIAS-Kurs.
-
-
+> Die Verbindungsdaten für die Datenbankverbindung (host, user, port, password) finden Sie im ILIAS-Kurs.
 
 ```r
 # Laden der benötigten Pakete
@@ -91,6 +91,7 @@ In diesem Abschnitt können Sie die abgerufenen Daten visualisieren. Passen Sie 
 Die nachfolgende Visualisierung erstellt ein Streudiagramm (Scatter Plot) der Dichte in Abhängigkeit von der Temperatur. Dabei wird die Temperatur auf der x-Achse und die Dichte auf der y-Achse aufgetragen. Das Diagramm wird mit ggplot2 erstellt, einer leistungsstarken Visualisierungsbibliothek in R.
 
 Sie können die Darstellung nach Ihren Wünschen anpassen, zum Beispiel durch:
+
 - Änderung der Farben und Formen der Datenpunkte
 - Hinzufügen einer Trendlinie
 - Anpassung der Achsenbeschriftungen
