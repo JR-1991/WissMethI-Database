@@ -28,7 +28,7 @@ install.packages("RMySQL")
 install.packages("ggplot2")
 ```
 
-> Für die Installation des Pakets `RMySQL` benötigen sie [xcode](https://developer.apple.com/xcode/). Dieses können Sie über den App Store installieren.
+> Für die Installation des Pakets `RMySQL` auf MacOS benötigen sie [xcode](https://developer.apple.com/xcode/). Dieses können Sie über den App Store installieren.
 
 ---
 
