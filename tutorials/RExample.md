@@ -44,7 +44,7 @@ Folgende Schritte werden in diesem Tutorial durchgeführt:
 
 In diesem Abschnitt stellen Sie eine Verbindung zu einer MySQL-Datenbank mit R her. Bearbeiten Sie die Argumente innerhalb der `dbConnect`-Funktion mit Ihren Datenbankzugangsdaten und führen Sie die Zelle aus.
 
-> Die Verbindungsdaten für die Datenbankverbindung (host, user, port, password) finden Sie im ILIAS-Kurs.
+> **WICHTIG:** Die Verbindungsdaten für die Datenbankverbindung (host, user, port, password) finden Sie im ILIAS-Kurs. Die folgenden Werte sind nur *Platzhalter*.
 
 ```r
 # Laden der benötigten Pakete
